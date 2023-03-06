@@ -9,7 +9,7 @@ while(True):
 if mode == '1':
     print("ENCODER")
 
-#DECODER
+#DECODE
 elif mode == '2':
     print("DECODER")
 
