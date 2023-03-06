@@ -24,15 +24,15 @@ tekst jawny podzielony na pary: **po-li-te-ch-ni-ka-po-zn-an-sk-ax**
 
 Teraz możemy przystąpić do szyfrowania. Robimy to na podstawie trzech reguł:
 1. **Jeżeli obie litery są w tym samym wierszu**
-    bierzym następniki tych liter znajdujące się o jedną kratke w prawo od nich (naszą talbicę traktujemy jakby prawa krawędź łączyła się z lewą).
+    bierzym następniki tych liter znajdujące się o jedną kratke w prawo od nich (naszą talbicę traktujemy jakby prawa krawędź łączyła się z lewą).<br> 
     np: **on** => **PO** , **pq** => **QM**
     <br>
 2. **Jeżeli obie litery są w tej samej kolumnie** 
-    bierzym następniki tych liter znajdujące się o jedną kratke w dół od nich (naszą talbicę traktujemy jakby dolna krawędź łączyła się z górną).
+    bierzym następniki tych liter znajdujące się o jedną kratke w dół od nich (naszą talbicę traktujemy jakby dolna krawędź łączyła się z górną).<br> 
     np: **le** => **QL** , **xr** => **RE**
     <br>
 3. **Inne przypadki**
-    wyznaczamy prostokąt o wierzchołkach w podanych literach a następnie dobieramy do nich litery należące do tych samych wierszy oraz tworzącymi z nimi wierzchołki owego prostkąta.
+    wyznaczamy prostokąt o wierzchołkach w podanych literach a następnie dobieramy do nich litery należące do tych samych wierszy oraz tworzącymi z nimi wierzchołki    owego prostkąta.<br> 
     np: **HW** tworzy prostokąt:
     |   |   |   |
     |---|---|---|
