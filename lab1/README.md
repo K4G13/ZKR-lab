@@ -39,6 +39,7 @@ Teraz możemy przystąpić do szyfrowania. Robimy to na podstawie trzech reguł:
     | **H** | I/J | K |
     | N | O   | P |
     | U | V   | **W** |
+    
     **hw** => **KU**
     <br> 
 
