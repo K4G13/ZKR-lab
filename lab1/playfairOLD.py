@@ -160,4 +160,4 @@ elif mode == '2':
     if plaintext[-1]=='X': plaintext = plaintext[:-1]
 
     print(f"PLAINTEXT: \033[92m{plaintext}\033[0m (no spaces & j=i)")   
-
+    
