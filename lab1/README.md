@@ -38,8 +38,8 @@ Teraz możemy przystąpić do szyfrowania. Robimy to na podstawie trzech reguł:
     |   |   |   |
     |---|---|---|
     | **H** | I/J | K |
-    | N | O   | P |
-    | U | V   | **W** |
+    | N | O | P |
+    | U | V | **W** |
     
     **hw** => **KU**
     <br> 
@@ -48,11 +48,3 @@ Tekst podzielony na pary (diagram): **po-li-te-ch-ni-ka-po-zn-an-sk-ax**<br>
 Tekst zaszyfrowany (kryptogram): **QP-GK-XA-BI-OH-GD-QP-BU-BM-FG-ET**
 
 Adresat znający słowo-klucz jest w stanie odwrócić procedurę ujawniając wiadomość.
-
----
-## Algorytm kodujący
-(TODO)
-
----
-## Algorytm dekodujący
-(TODO)
