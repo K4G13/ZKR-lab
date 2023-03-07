@@ -44,7 +44,8 @@ if mode == '1':
     plaintext = input("Type text to encode: ")
     if plaintext == "":
         exit("\033[91mNO TEXT TO ENCODE\nEXITING...\033[0m")
-    plaintext = plaintext.replace('j','i')
+    plaintext = plaintext.replace('j','I')
+    plaintext = plaintext.replace('J','I')
     plaintext = re.sub(r'[^a-zA-Z]', '', plaintext).upper()
     
     print("")
@@ -113,7 +114,8 @@ elif mode == '2':
     cipher = input("Type text to decode: ")
     if cipher == "":
         exit("\033[91mNO TEXT TO DECODE\nEXITING...\033[0m")
-    cipher = cipher.replace('j','i')
+    cipher = cipher.replace('j','I')
+    cipher = cipher.replace('J','I')
     cipher = re.sub(r'[^a-zA-Z]', '', cipher).upper()
 
     print("")
