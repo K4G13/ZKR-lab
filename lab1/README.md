@@ -44,7 +44,7 @@ Teraz możemy przystąpić do szyfrowania. Robimy to na podstawie trzech reguł:
     **hw** => **KU**
     <br> 
 
-Tekst podzielony na pary (diagram): **po-li-te-ch-ni-ka-po-zn-an-sk-ax**
+Tekst podzielony na pary (diagram): **po-li-te-ch-ni-ka-po-zn-an-sk-ax**<br>
 Tekst zaszyfrowany (kryptogram): **QP-GK-XA-BI-OH-GD-QP-BU-BM-FG-ET**
 
 Adresat znający słowo-klucz jest w stanie odwrócić procedurę ujawniając wiadomość.
