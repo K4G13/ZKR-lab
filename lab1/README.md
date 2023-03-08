@@ -20,7 +20,7 @@ Jeżeli chcielibyśmy użyć słowa **KAJAK** jako słowo-klucz musimy pominąć
 Następnie musimy podzielić tekst do zaszyfrowania na pary liter. Każda z par powinna się skłądać z dwóch różnych od siebie liter. W razie potrzeby możemy wstawić **X** w wybranej przez nas parze.
 
 Przykład:
-tekst jawny: **politechnika poznanska**
+tekst jawny: **politechnika poznanska**<br>
 tekst jawny podzielony na pary: **po-li-te-ch-ni-ka-po-zn-an-sk-ax**
 
 Teraz możemy przystąpić do szyfrowania. Robimy to na podstawie trzech reguł:
