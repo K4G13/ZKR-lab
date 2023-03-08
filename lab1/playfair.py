@@ -14,7 +14,11 @@ class logColors:
     UNDERLINE = '\033[4m'
 
 if len(sys.argv) < 4: 
-    sys.exit(f"{logColors.FAIL}(!) Too few arguments\nCorrect usage: {logColors.WARNING}playfair.py [e|d|encode|decode] <keyword> <text>\n{logColors.FAIL}EXITING...{logColors.ENDC}")
+    print(f"{logColors.FAIL}(!) Too few arguments")
+    print(f"{logColors.FAIL}Correct usage: {logColors.WARNING}playfair.py [dev-][e|d|encode|decode] <keyword> <text>)")
+    print(f"{logColors.FAIL}Example1: {logColors.WARNING}playfair.py e szyfr politechnika poznanska")
+    print(f"{logColors.FAIL}Example2: {logColors.WARNING}playfair.py d szyfr QPGKXABIOHGDQPBUBMFGET")
+    sys.exit(f"{logColors.FAIL}EXITING...{logColors.ENDC}")
 
 mode = sys.argv[1]
 if mode[0:4] == "dev-":
@@ -59,6 +63,7 @@ def getCol(matrix,letter):
 
 def encode(M,T):
     T = T.replace('j','I')
+    T = T.replace('J','I')
     T = re.sub(r'[^a-zA-Z]', '', T).upper()
     if dev: print(f"{logColors.WARNING}PLAINTEXT: {T} (no spaces & j=i){logColors.ENDC}")
 
@@ -111,15 +116,18 @@ def encode(M,T):
 
 def decode(M,T):
     T = T.replace('j','I')
+    T = T.replace('J','I')
     T = re.sub(r'[^a-zA-Z]', '', T).upper()
     if len(T)%2==1:
         sys.exit(f"{logColors.FAIL}(!) Length of encoded text should be even number\nEXITING...{logColors.ENDC}")
-    if dev: print(f"{logColors.WARNING}CIPHER:    {T} (no spaces & j=i){logColors.ENDC}")
+    if dev: print(f"{logColors.WARNING}CIPHER: {T} (J=I){logColors.ENDC}")
 
     decodedText = ""
     for i in range(0,len(T),2):
         l1 = T[i]
         l2 = T[i+1]
+        if l1 == l2:
+            sys.exit(f"{logColors.FAIL}(!) Letters cannot repeat on 'n' and 'n+1' indexes\nEXITING...{logColors.ENDC}")
         if getRow(M,l1) == getRow(M,l2):
             if getCol(M,l1) == 0:
                 decodedText += M[getRow(M,l1)][4]
