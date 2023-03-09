@@ -25,7 +25,7 @@ mode = sys.argv[1]
 if mode[0:4] == "dev-":
     dev = True
     mode = mode[4:]
-if mode != "e" and mode != "d" and mode != "b" and mode != "decode" and mode != "both":
+if mode != "e" and mode != "d" and mode != "b" and mode != "encode" and mode != "decode" and mode != "both":
     sys.exit(f"{logColors.FAIL}(!) Wrong mode\nAvailable modes: {logColors.WARNING} e, d, b, encode, decode, both\n{logColors.FAIL}EXITING...{logColors.ENDC}")
 keyword = sys.argv[2]
 text = ""
