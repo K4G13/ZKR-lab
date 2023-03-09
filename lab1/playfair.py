@@ -15,17 +15,18 @@ class logColors:
 
 if len(sys.argv) < 4: 
     print(f"{logColors.FAIL}(!) Too few arguments")
-    print(f"{logColors.FAIL}Correct usage: {logColors.WARNING}playfair.py [dev-][e|d|encode|decode] <keyword> <text>)")
+    print(f"{logColors.FAIL}Correct usage: {logColors.WARNING}playfair.py [dev-][e/encode|d/decode|b/both] <keyword> <text>)")
     print(f"{logColors.FAIL}Example1: {logColors.WARNING}playfair.py e szyfr politechnika poznanska")
     print(f"{logColors.FAIL}Example2: {logColors.WARNING}playfair.py d szyfr QPGKXABIOHGDQPBUBMFGET")
+    print(f"{logColors.FAIL}Example3: {logColors.WARNING}playfair.py dev-b szyfr politechnika poznanska")
     sys.exit(f"{logColors.FAIL}EXITING...{logColors.ENDC}")
 
 mode = sys.argv[1]
 if mode[0:4] == "dev-":
     dev = True
     mode = mode[4:]
-if mode != "e" and mode != "d" and mode != "encode" and mode != "decode":
-    sys.exit(f"{logColors.FAIL}(!) Wrong mode\nAvailable modes: {logColors.WARNING} e, d, encode, decode\n{logColors.FAIL}EXITING...{logColors.ENDC}")
+if mode != "e" and mode != "d" and mode != "b" and mode != "decode" and mode != "both":
+    sys.exit(f"{logColors.FAIL}(!) Wrong mode\nAvailable modes: {logColors.WARNING} e, d, b, encode, decode, both\n{logColors.FAIL}EXITING...{logColors.ENDC}")
 keyword = sys.argv[2]
 text = ""
 for i in range(3,len(sys.argv),1): text += sys.argv[i] + " "
@@ -46,7 +47,7 @@ def createMatrix(keyword):
     for i in range(5):
         newMatrix.append(letters[i*5:i*5+5])
 
-    if dev: print(f"{logColors.WARNING}KEYWORD: {keyword}{logColors.ENDC}")
+    if dev: print(f"{logColors.WARNING}KEYWORD:   {keyword}{logColors.ENDC}")
     if dev: print(f"{logColors.WARNING}{newMatrix[0]}\n{newMatrix[1]}\n{newMatrix[2]}\n{newMatrix[3]}\n{newMatrix[4]}{logColors.ENDC}")
 
     return newMatrix
@@ -107,12 +108,12 @@ def encode(M,T):
             cipher += M[getRow(M,l2)][getCol(M,l1)]
     
     if dev: 
-        print(f"{logColors.WARNING}CIPHER:    {cipher[0]}{cipher[1]}{logColors.ENDC}",end="")
+        print(f"{logColors.WARNING}ENCODED:   {cipher[0]}{cipher[1]}{logColors.ENDC}",end="")
         for i in range(2,len(cipher),2):
             print(f"-{logColors.WARNING}{cipher[i]}{cipher[i+1]}{logColors.ENDC}",end="")
         print("")
 
-    print(cipher)
+    return cipher
 
 def decode(M,T):
     T = T.replace('j','I')
@@ -120,9 +121,14 @@ def decode(M,T):
     T = re.sub(r'[^a-zA-Z]', '', T).upper()
     if len(T)%2==1:
         sys.exit(f"{logColors.FAIL}(!) Length of encoded text should be even number\nEXITING...{logColors.ENDC}")
-    if dev: print(f"{logColors.WARNING}CIPHER: {T} (J=I){logColors.ENDC}")
+    if dev: 
+        print(f"{logColors.WARNING}ENCODED:   {T[0]}{T[1]}{logColors.ENDC}",end="")
+        for i in range(2,len(T),2):
+            print(f"-{logColors.WARNING}{T[i]}{T[i+1]}{logColors.ENDC}",end="")
+        print("")
 
     decodedText = ""
+    temp = ""
     for i in range(0,len(T),2):
         l1 = T[i]
         l2 = T[i+1]
@@ -139,26 +145,38 @@ def decode(M,T):
                 decodedText += M[getRow(M,l2)][getCol(M,l2)-1]
         elif getCol(M,l1) == getCol(M,l2):
             if getRow(M,l1) == 0:
-                decodedText += M[4][getRow(M,l1)]
+                decodedText += M[4][getCol(M,l1)]
             else:
                 decodedText += M[getRow(M,l1)-1][getCol(M,l1)]
             if getRow(M,l2) == 0:
-                decodedText += M[4][getRow(M,l2)]
+                decodedText += M[4][getCol(M,l2)]
+                print(M[4][getCol(M,l2)])
+                print(4,getCol(M,l2) )
             else:
-                decodedText += M[getRow(M,l2)-1][getCol(M,l2)]
+                decodedText += M[getRow(M,l2)-1][getCol(M,l2)]    
         else:
             decodedText += M[getRow(M,l1)][getCol(M,l2)]
-            decodedText += M[getRow(M,l2)][getCol(M,l1)]
+            decodedText += M[getRow(M,l2)][getCol(M,l1)]         
     
-    decodedText = decodedText.replace('X','')
+    #decodedText = decodedText.replace('X','')
+
+    if dev: 
+        print(f"{logColors.WARNING}DECODED:   {decodedText[0]}{decodedText[1]}{logColors.ENDC}",end="")
+        for i in range(2,len(decodedText),2):
+            print(f"-{logColors.WARNING}{decodedText[i]}{decodedText[i+1]}{logColors.ENDC}",end="")
+        print("")
     
-    print(decodedText)
+    return decodedText
 
 
 
 #MAIN
 letterMatrix = createMatrix(keyword)
 if mode == "e" or mode == "encode":
-    encode(letterMatrix,text)
+    print(encode(letterMatrix,text))
 if mode == "d" or mode == "decode":
-    decode(letterMatrix,text)
+    print(decode(letterMatrix,text))
+if mode == "b" or mode == "both":
+    encodedText = encode(letterMatrix,text)
+    print(encodedText)
+    print(decode(letterMatrix,encodedText))
