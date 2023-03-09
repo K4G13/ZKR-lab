@@ -1,1 +1,1 @@
-# lab1 - playfair cipher
+# lab1 - playfair cipher encoder/decoder
