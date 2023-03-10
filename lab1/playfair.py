@@ -96,11 +96,11 @@ def encode(M,T):
                 cipher += M[getRow(M,l2)][getCol(M,l2)+1]
         elif getCol(M,l1) == getCol(M,l2):
             if getRow(M,l1) == 4:
-                cipher += M[0][getRow(M,l1)]
+                cipher += M[0][getCol(M,l1)]
             else:
                 cipher += M[getRow(M,l1)+1][getCol(M,l1)]
             if getRow(M,l2) == 4:
-                cipher += M[0][getRow(M,l2)]
+                cipher += M[0][getCol(M,l2)]
             else:
                 cipher += M[getRow(M,l2)+1][getCol(M,l2)]
         else:
@@ -132,8 +132,8 @@ def decode(M,T):
     for i in range(0,len(T),2):
         l1 = T[i]
         l2 = T[i+1]
-        if l1 == l2:
-            sys.exit(f"{logColors.FAIL}(!) Letters cannot repeat on 'n' and 'n+1' indexes\nEXITING...{logColors.ENDC}")
+        # if l1 == l2:
+        #     sys.exit(f"{logColors.FAIL}(!) Letters cannot repeat on 'n' and 'n+1' indexes\nEXITING...{logColors.ENDC}")
         if getRow(M,l1) == getRow(M,l2):
             if getCol(M,l1) == 0:
                 decodedText += M[getRow(M,l1)][4]
@@ -150,8 +150,6 @@ def decode(M,T):
                 decodedText += M[getRow(M,l1)-1][getCol(M,l1)]
             if getRow(M,l2) == 0:
                 decodedText += M[4][getCol(M,l2)]
-                print(M[4][getCol(M,l2)])
-                print(4,getCol(M,l2) )
             else:
                 decodedText += M[getRow(M,l2)-1][getCol(M,l2)]    
         else:
