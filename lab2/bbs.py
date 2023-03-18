@@ -56,6 +56,7 @@ class BBS:
         for i in range(1,20000):
             X.append((X[i-1]**2)%n)
 
+        self.bitArray = []
         for el in X:
             self.bitArray.append(el%2)
 
