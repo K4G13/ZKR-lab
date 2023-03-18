@@ -10,23 +10,7 @@ class lc:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+from bbs import BBS
 
-import bbs
-
-p,q,n,x0,X,bitArray = bbs.generate()
-
-#Test pojedynczych bitów
-def test1():
-    amount = 0
-    for el in bitArray:
-        if el == 1: amount+=1
-    
-    # print(amount)
-
-    if 9725 < amount < 10275: return True
-    else: return False
-
-print(p,q,n)
-
-if test1(): print("test1: Positive")
-else: print("test1: Negative")
+x = BBS()
+print(x.generate())
