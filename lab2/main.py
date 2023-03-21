@@ -12,7 +12,9 @@ class lc:
 dev = False
 if len(sys.argv) == 2 and sys.argv[1]=="dev": dev = True
 
-bbs = BBS(3187,7187)
+# bbs = BBS(3187,7187)
+bbs = BBS()
+
 bbs.generate()
 
 if dev:

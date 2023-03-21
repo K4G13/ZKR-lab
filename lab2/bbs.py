@@ -33,12 +33,7 @@ class BBS:
         while isPrime(self.x) == False or self.x == self.p or self.x == self.q:
             self.x = random.randint(1000,9999)
 
-    def __init__(self):
-        self.set_p()
-        self.set_q()        
-        self.set_x()
-
-    def __init__(self,p,q):
+    def __init__(self,p=3187,q=7187):
         if p != q and isGoodPrime(p) and isGoodPrime(q):
             self.p = p
             self.q = q
