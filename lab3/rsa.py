@@ -1,8 +1,8 @@
 from sympy import randprime
 
-# def gcd(a, b):
-#     if b == 0: return a
-#     else: return gcd(b, a % b)
+def gcd(a, b):
+    if b == 0: return a
+    else: return gcd(b, a % b)
 
 class rsa:
 
@@ -22,8 +22,8 @@ class rsa:
         while True:
             e = randprime(1, phi)
             d = pow(e,-1,phi)
-            # if gcd(e, phi) == 1 and e != d:
-            if e != d:
+            if gcd(e, phi) == 1 and e != d:
+            # if e != d:
                 break
 
         print(f"e = \033[93m{e}\033[0m")
