@@ -1,71 +1,60 @@
 from sympy import randprime
-import math
 
-def nwd(a, b): return nwd(b, a%b) if b else a
+# def gcd(a, b):
+#     if b == 0: return a
+#     else: return gcd(b, a % b)
 
-class RSA:
+class rsa:
 
-    p = 0
-    q = 0
-    n = 0
-    phi = 0
-    e = 0
-    d = 0   
+    def generate(self,range_s = 10**3,range_e = 10**4):
+        p = randprime(range_s ,range_e)
+        q = randprime(range_s ,range_e)
+        n = p*q
+        phi = (p-1)*(q-1)
 
-    def __init__(self):
-        self.p = randprime(1000,9999)
-        self.q = randprime(1000,9999)
-        self.n = self.p * self.q
-        self.phi = (self.p - 1)*(self.q - 1)
-        # self.e = randprime(1,self.phi)
-        self.e = 2
-        while(self.e<self.phi):
-            if (math.gcd(self.e, self.phi) == 1):
+        print(f"p = {p}")
+        print(f"q = {q}")
+        print(f"n = \033[93m{n}\033[0m")
+        print(f"Φ = {phi}")
+
+        e = None
+        d = None
+        while True:
+            e = randprime(1, phi)
+            d = pow(e,-1,phi)
+            # if gcd(e, phi) == 1 and e != d:
+            if e != d:
                 break
-            else:
-                self.e += 1
-        self.d = pow(self.e,-1,self.phi)
-        # k = 2
-        # self.d = int(((k*self.phi)+1)/self.e)
-        
 
-    def encryption(self,m):
-        c = (m**self.e)%(self.n)
-        return c
+        print(f"e = \033[93m{e}\033[0m")
+        print(f"d = \033[93m{d}\033[0m")
+
+        # Returns PUBLIC_KEY and PRIVATE_KEY
+        return ((e,n),(d,n))
     
-    def decryption(self,c):
-        m = (c**self.d)%(self.n)
-        return m
-    
-    def encrypt(self,message):
+    def encrypt(self,public_key,msg):
+        e,n = public_key
         code = []
-        for ch in message:
-            code.append( self.encryption(ord(ch)) )
+        for i in msg:
+            code.append(pow(ord(i), e, n))
         return code
     
-    def decrypt(self,code):
-        message = ""
-        for x in code:
-            message += str( chr(self.decryption(x)) )
-        return message
+    def decrypt(self,private_key,code):
+        d,n = private_key
+        msg = []
+        for i in code:
+            msg.append( chr(pow(i, d, n)) )
+        return msg
 
 
-    def dev(self):
-        print("n:   ",self.n)
-        print("phi: ",self.phi)
-        print("e:   ",self.e)
-        print("d:   ",self.d)
+RSA = rsa()
+public,private = RSA.generate()
 
+msg = "Rivest-Shamir-Adleman"
+print(f" Original message: \033[93m{msg}\033[0m")
 
-rsa = RSA()
+code = RSA.encrypt(public,msg)
+print(f"Encrypted message: \033[91m{code}\033[0m")
 
-rsa.dev()
-
-PLAIN_TEXT = "Politechnika Poznańska"
-print(f"\033[93mPlain text:    \033[0m {PLAIN_TEXT}")
-
-ENCRYPTED_TEXT = rsa.encrypt(PLAIN_TEXT)
-print(f"\033[93mEncrypted text:\033[0m {ENCRYPTED_TEXT}")
-
-DECRYPTED_TEXT = rsa.decrypt(ENCRYPTED_TEXT)
-print(f"\033[91mDecrypted text:\033[0m {DECRYPTED_TEXT}")
+msg_2 = ''.join( RSA.decrypt(private,code) )
+print(f"Decrypted message: \033[92m{msg_2}\033[0m")
