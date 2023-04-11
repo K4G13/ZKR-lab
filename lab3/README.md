@@ -4,11 +4,11 @@
 2. Obliczamy **n=p∙q** =589
 3. Obliczamy **Φ=(p-1)(q-1)** =540
 4. Generujemy **e** =7 gdzie:
-    a. **e** jest liczbą pierwszą
-    b. **1<e<Φ**
+a. **e** jest liczbą pierwszą
+b. **1<e<Φ**
 5. Generujemy **d** =463 gdzie:
-    a. **d ≠ e**
-    b. **(e∙d - 1)mod(Φ) = 0**
+a. **d ≠ e**
+b. **(e∙d - 1)mod(Φ) = 0**
 
 **klucz publiczny: (e,n)** =(7,589)  
 **klucz prywatny: (d,n)** =(463,589)
