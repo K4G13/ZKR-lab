@@ -27,7 +27,7 @@ np.
 c = 312
 c = 312^463 mod 589 = 8
 ___
-# Algorytmu	Diffiego-Hellmana (D-H)
+# Algorytm	Diffiego-Hellmana (D-H)
 ## Krok 1 (👳🏾‍♂️👨🏻‍🦰):
 Generujemy losową dużą liczbę pierwszą **n**.
 Znajdujemy **g**, czyli pierwiastek pierwotny modulo **n** dla **1<g<n**.
