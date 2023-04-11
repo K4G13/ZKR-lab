@@ -1,5 +1,5 @@
 # RSA
-### Generowanie kluczy:
+## Generowanie kluczy:
 1) Wbieramy dwie liczby pierwsze: **p** =31 oraz **q** =19
 2) Obliczamy **n=p∙q** =589
 3) Obliczamy **Φ=(p-1)(q-1)** =540
@@ -13,14 +13,14 @@
 **klucz publiczny: (e,n)** =(7,589)  
 **klucz prywatny: (d,n)** =(463,589)
 
-### Szyfrowanie:
+## Szyfrowanie:
 **c = m^e mod n**
 gdzie **m** to wiadmość oryginalna a **c** wiadmość zaszyfrowana
 np.
 m = 8
 c = 8^7 mod 589 = 312
 
-### Deszyfrowanie:
+## Deszyfrowanie:
 **m = c^d mod n**
 gdzie **c** to wiadmość zaszyfrowana a **m** wiadmość oryginalna
 np.
