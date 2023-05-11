@@ -3,3 +3,4 @@
 # lab3 - algorytms RSA & D-H
 # lab4 - hash functions
 # lab5 - visual cryptography
+# lab6 - steganography
