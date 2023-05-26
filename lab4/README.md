@@ -7,8 +7,7 @@ biblioteka hashlib
 Sól pozwala zwiększyć siłę bezpieczeństwa funkcji skrótu w niektórych przypadkach. Sól może być losowa i dodawana automatycznie przez oprogramowanie do funkcji skrótu.  Jako że przechowywana jest jawnie, nie chroni przed atakami takimi jak Brute-Force, natomiast chroni przed atakami słownikowymi.
 
 ## 4. Czy funkcję MD5 można uznać	za	bezpieczną?	Czy	dotychczas	zostały	znalezione	dla	niej	jakiekolwiek	kolizje?
-Dla	wybranej	przez	si
-Problemy z algorytmem MD5 były znane już wcześniej. Funkcja ta, wynaleziona w 1991 r., generuje skrót o długości 128 bitów. To zbyt mało, by oprzeć się technikom kryptoanalizy dostępnym współcześnie. W związku z tym od kilku lat wśród producentów systemów kryptograficznych obserwuje się tendencję do odchodzenia od MD5 na rzecz SHA-1, dającego skrót 160-bitowy i będącego do niedawna standardem zalecanym przez Amerykański Instytut Standardów i Technologii (NIST).
+Funkcja ta generuje skrót o długości 128 bitów. To zbyt mało, by oprzeć się technikom kryptoanalizy dostępnym współcześnie. W związku z tym od kilku lat wśród producentów systemów kryptograficznych obserwuje się tendencję do odchodzenia od MD5 na rzecz SHA-1, dającego skrót 160-bitowy i będącego do niedawna standardem zalecanym przez Amerykański Instytut Standardów i Technologii (NIST).
 
 W marcu 2005 Arjen Lenstra, Xiaoyun Wang i Benne de Weger zaprezentowali metodę umożliwiającą znalezienie kolizji dla algorytmu MD5 i przeprowadzenie ataku polegającego na wysłaniu dwóch różnych wiadomości chronionych tym samym podpisem cyfrowym. Kilka dni później Vlastimil Klima opublikował algorytm, który potrafił znaleźć kolizję w ciągu minuty, używając metody nazwanej tunneling.
 
