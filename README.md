@@ -4,3 +4,4 @@
 # lab4 - hash functions
 # lab5 - visual cryptography
 # lab6 - steganography
+# lab7 - working modes of block ciphers
