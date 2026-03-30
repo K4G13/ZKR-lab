@@ -1,7 +1,7 @@
 # Kryptografia wizualna 🔑👀
 
 ## Preview
-<img src="summary.png" style="height: 200px; width: 200px"/>
+<img src="summary.png" style="height: 500px; width: 500px"/>
 
 
 ## Teoria
