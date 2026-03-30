@@ -1,5 +1,9 @@
 # Kryptografia wizualna 🔑👀
 
+## Preview
+<img src="summary.png" style="height: 200px; width: 200px"/>
+
+
 ## Teoria
 | piksel | prawdopodobieństwo | udział #1 | udział #2 | wynik |
 |:---:|:---:|:---:|:---:|:---:|
